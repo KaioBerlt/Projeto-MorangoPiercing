@@ -1,4 +1,5 @@
-import axios from "axios";
+import api from "../Services/api";
+import { loginUserApi, createUserApi, getUserById } from "../Services/AuthService";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,26 +9,22 @@ const useAuth = () => {
 
     const [userLogged, setUserLogged] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [userFull, setUserFull] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
-      const userInfo = localStorage.getItem('userInfo');
+      const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       
       if (userInfo) {
+        api.defaults.headers.common[ 'Authorization' ] = `Bearer ${userInfo.token}`
+        findUserById(userInfo.id);
         setUserLogged(true);
       }
       
       setLoading(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
-    const api = axios.create({
-      baseURL: 'http://localhost:3001'
-    })
-
-    const loginUserApi = (userValues) =>
-  api.post('/auth/login', userValues)
-    .then((response) => response)
-    .catch((err) => console.error('Erro na chamada', err));
 
     const loginUser = async (inputValues) => {
       const response = await loginUserApi(inputValues);
@@ -39,10 +36,6 @@ const useAuth = () => {
       setUserLogged(true);
     }
 
-    const createUserApi = (userValues) =>
-    api.post('/usuario/create', userValues)
-      .then((response) => response)
-      .catch((err) => console.error('Erro na chamada', err));
   
       const createUser = async (inputValues) => {
         const response = await createUserApi(inputValues);
@@ -55,37 +48,19 @@ const useAuth = () => {
         
       }
 
-/*
-    const loginUser = async (inputValues) => {
-       const response = await fetch ('http://localhost:3001/auth/login',{
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(inputValues)
-    })
-    
-    try {
-    const data = await response.json()
-    console.log(data)
-    localStorage.setItem('userInfo', JSON.stringify(data))
-    navigate('/');
-    setUserLogged(true);
-    }catch (error) {
-      console.log(error)
-    }
-    
-    };
-*/
     const logoutUser = () => {
       setUserLogged (false);
       localStorage.clear();
       navigate ('/login');
     }
 
-    return { userLogged, loading, loginUser, logoutUser, createUser }
+    const findUserById = async (idUser) => {
+      const response = await getUserById(idUser);
+      setUserFull(response.data)
+      console.log(userFull)
+    }
+
+    return { userLogged, loading, userFull, loginUser, logoutUser, createUser }
 
 };
 
