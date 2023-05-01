@@ -67,11 +67,57 @@ const validaLogin = (req, res, next) => {
     }
 };
 
+const validaProduto = (req, res, next) => {
+    let erros = []; //var para acumular erros
+
+    if(!req.body.nome){
+        erros.push("nome");
+    }
+
+    if(!req.body.descricao){
+        erros.push("descricao");
+    }
+
+    if(!req.body.precoUnitario){
+        erros.push("precoUnitario");
+    }
+
+    if(!req.body.imagem){
+        erros.push("imagem");
+    }
+
+    if(!req.body.codigoBarra){
+        erros.push("codigoBarra");
+    }
+
+    //testanto quantidade de erros 
+    if(erros.length == 0) {
+        return next();
+    }else{
+        if(erros.length > 1){
+            return res.status(400).send({ message: `Os campos ${erros} precisam ser preenchidos`})     
+        }else{
+            return res.status(400).send({ message: `O campo ${erros} precisa ser preenchido`})
+        }
+       
+    }
+
+};
+
+const validaCategoria = (req, res, next) => {
+    if(!req.body.nome){
+        return res.status(400).send({ message: `O campo 'nome' precisa ser preenchido`});
+    }
+    return next();
+};
+
 
 
 module.exports = {
     validaUsuario,
     validaIdParams, 
     valida_IdBody,
-    validaLogin
+    validaLogin,
+    validaCategoria,
+    validaProduto
 };
