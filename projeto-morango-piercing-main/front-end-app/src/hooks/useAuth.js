@@ -1,5 +1,5 @@
 import api from "../Services/api";
-import { loginUserApi, createUserApi, getUserById } from "../Services/AuthService";
+import { loginUserApi, createUserApi, getUserById } from "../Services/authService";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

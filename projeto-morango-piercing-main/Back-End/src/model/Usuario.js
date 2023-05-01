@@ -5,7 +5,9 @@ const UsuarioSchema = new mongoose.Schema({
     nome: { type: String, required: true},
     email: { type: String, unique: true, required: true},
     senha: { type: String, required: true},
-    telefone: { type: String, required: true}
+    telefone: { type: String, required: true},
+        createdAt: { type: Date, required: true, default: Date.now()},
+    admin: { type: Boolean, required: true, default: false }
  
 });
 
