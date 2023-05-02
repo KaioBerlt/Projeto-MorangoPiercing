@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { findAllProducts } from "../../Services/productService";
+
 
 const Admin = () => {
+    const [products, setProducts] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(()=> {
+      getAllProducts();
+    }, [])
+
+    const getAllProducts = async () => {
+      const response = await findAllProducts();
+      setProducts(response.data);
+    }
+
   return (
     <section className="my-12 max-w-screen-xl mx-auto px-6">
       <div className="flex justify-end space-y-2">
@@ -51,18 +64,19 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b">
+                  {products.map(product => (
+                                      <tr key={product._id} className="bg-white border-b">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <img src="" alt="img" />
+                      <img className="h-12" src={product.imagem} alt={product.nome} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      produto 1
+                      {product.nome}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      10
+                      {product.precoUnitario}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      21333333
+                      {product.codigoBarra}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center">
                       <div className="flex items-center justify-center space-x-3">
@@ -71,6 +85,8 @@ const Admin = () => {
                       </div>
                     </td>
                   </tr>
+                  ))}
+
                 </tbody>
               </table>
             </div>

@@ -9,7 +9,7 @@ const ProdutoSchema = new mongoose.Schema({
     categorias: [
         {
             
-            _id: { type: mongoose.Schema.Types.ObjectId, required: true, unique: true, ref: "categorias"},
+            _id: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "categorias"},
             createdAt: { type: Date, required: true, default: Date.now() }
         },
     ], 

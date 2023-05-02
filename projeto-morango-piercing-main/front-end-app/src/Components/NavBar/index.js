@@ -23,6 +23,7 @@ const NavBar = () => {
               </div>
               <img src='' alt=''/>
               <p className='text-gray-700'>Seja Bem-Vindx {userFull.nome}!</p>
+              <Link to='/admin'>Admin</Link>
                 <RiLogoutBoxRFill className='color-primary w-6 h-6 cursor-pointer' onClick={logoutUser} />
             </div>
           ) : (
