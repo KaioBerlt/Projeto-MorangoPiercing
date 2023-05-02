@@ -10,6 +10,7 @@ import Admin from "./Pages/Admin";
 import { AuthProvider } from "./Context/AuthContext";
 import PrivateRoute from "./Routes/PrivateRoute";
 import AddProducts from "./Pages/AddProducts";
+import EditProduct from "./Pages/EditProduct";
 
 function App() {
   return (
@@ -35,10 +36,18 @@ function App() {
             }
           />
           <Route
-            path="/add-products"
+            path="/admin/add-products"
             element={
               <PrivateRoute>
                 <AddProducts />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/edit-products/:id"
+            element={
+              <PrivateRoute>
+                <EditProduct />
               </PrivateRoute>
             }
           />

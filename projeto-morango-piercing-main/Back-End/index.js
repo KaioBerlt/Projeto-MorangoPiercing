@@ -28,7 +28,7 @@ app.use(cors(
             "localhost:3000",
             "localhost:3002",
         ],
-        methods: ["GET", "POST", "PUT", "PATCH"]
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 )); 
 

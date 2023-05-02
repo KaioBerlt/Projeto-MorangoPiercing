@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { findAllProducts } from "../../Services/productService";
+import { Link, useNavigate } from "react-router-dom";
+import { deleteProduct, findAllProducts } from "../../Services/productService";
 
 
 const Admin = () => {
@@ -18,10 +18,18 @@ const Admin = () => {
       setProducts(response.data);
     }
 
+    const removeProduct = async (id) => {
+      const answer = window.confirm('Deseja excluir o produto?')
+      if(answer) {
+        await deleteProduct(id);
+        getAllProducts();
+      }
+    }
+
   return (
     <section className="my-12 max-w-screen-xl mx-auto px-6">
       <div className="flex justify-end space-y-2">
-        <button onClick={() => navigate('/add-products')} className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105">
+        <button onClick={() => navigate('/admin/add-products')} className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105">
           Adiciona Produto
         </button>
       </div>
@@ -80,8 +88,9 @@ const Admin = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap flex flex-col h-24 items-center justify-center">
                       <div className="flex items-center justify-center space-x-3">
-                        <FiEdit className="cursor-pointer text-2xl text-emerald-600" />
-                        <MdDeleteForever className="cursor-pointer text-2xl text-red-700" />
+                        <Link to={`/admin/edit-products/${product._id}`}><FiEdit className="cursor-pointer text-2xl text-emerald-600" /></Link>
+                        
+                        <MdDeleteForever onClick={()=> removeProduct(product._id)} className="cursor-pointer text-2xl text-red-700" />
                       </div>
                     </td>
                   </tr>
