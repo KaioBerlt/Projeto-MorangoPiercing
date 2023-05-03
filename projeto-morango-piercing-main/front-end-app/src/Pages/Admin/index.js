@@ -22,7 +22,7 @@ const Admin = () => {
       const answer = window.confirm('Deseja excluir o produto?')
       if(answer) {
         await deleteProduct(id);
-        getAllProducts();
+        getAllProducts(); 
       }
     }
 

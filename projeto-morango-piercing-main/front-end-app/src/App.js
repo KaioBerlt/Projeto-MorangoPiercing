@@ -11,6 +11,7 @@ import { AuthProvider } from "./Context/AuthContext";
 import PrivateRoute from "./Routes/PrivateRoute";
 import AddProducts from "./Pages/AddProducts";
 import EditProduct from "./Pages/EditProduct";
+import Produtos from "./Pages/Produtos";
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Endereco />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/produtos"
+            element={
+              <PrivateRoute>
+                <Produtos />
               </PrivateRoute>
             }
           />

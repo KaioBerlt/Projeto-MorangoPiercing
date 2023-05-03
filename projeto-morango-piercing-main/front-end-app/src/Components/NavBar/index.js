@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import { RiHomeHeartFill, RiInstagramFill, RiLogoutBoxRFill } from 'react-icons/ri';
-import { SiGooglemaps } from 'react-icons/si';
+
 
 const NavBar = () => {
   const { userLogged, logoutUser, userFull } = useContext(AuthContext);
@@ -18,7 +18,6 @@ const NavBar = () => {
           {userLogged ? (
             <div className='flex items-center justify-end space-x-4'>
               <div className='relative flex cursor-pointer space-x-4'>
-                <Link to = '/endereco'><SiGooglemaps className='color-primary w-6 h-6 cursor-pointer' /></Link>
                   <RiInstagramFill className='color-primary w-6 h-6 cursor-pointer' />
               </div>
               <img src='' alt=''/>

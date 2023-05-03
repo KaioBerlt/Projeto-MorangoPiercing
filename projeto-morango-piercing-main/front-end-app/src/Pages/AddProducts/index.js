@@ -78,7 +78,7 @@ const AddProducts = () => {
             name="nome"
             required
             onChange={handleChangeValues}
-            className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700"
+            className="border border-purple-950 rounded-lg placeholder:text-center placeholder:text-purple-700"
           />
           <label htmlFor="descricao" className="text-gray-500 ">
             Descrição
@@ -88,7 +88,7 @@ const AddProducts = () => {
             id="descricao"
             cols="30"
             rows="2"
-            className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700"
+            className="border border-purple-950 rounded-lg placeholder:text-center placeholder:text-purple-700"
             required
             onChange={handleChangeValues}
           />
@@ -101,7 +101,7 @@ const AddProducts = () => {
             name="codigoBarra"
             required
             onChange={handleChangeValues}
-            className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700"
+            className="border border-purple-950 rounded-lg placeholder:text-center placeholder:text-purple-700"
           />
         </div>
         <div className="flex flex-col space-y-4">
@@ -114,7 +114,7 @@ const AddProducts = () => {
             name="precoUnitario"
             required
             onChange={handleChangeValues}
-            className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700"
+            className="border border-purple-950 rounded-lg placeholder:text-center placeholder:text-purple-700"
           />
           <label htmlFor="imagem" className="text-gray-500 ">
             Imagem
@@ -125,7 +125,7 @@ const AddProducts = () => {
             name="imagem"
             required
             onChange={handleChangeValues}
-            className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700"
+            className="border border-purple-950 rounded-lg placeholder:text-center placeholder:text-purple-700"
           />
           <label htmlFor="categoria" className="text-gray-500 ">
             Categoria
@@ -138,7 +138,7 @@ const AddProducts = () => {
             
           />
           <div className="mt-8">
-            <button className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105">
+            <button className="bg-primary text-white px-6 rounded-lg transition duration-700 hover:scale-105">
               Adicionar
             </button>
           </div>
