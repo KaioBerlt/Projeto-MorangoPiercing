@@ -1,9 +1,10 @@
-import Home from "../Home";
+import Header from "../../Components/Header";
+
 
 const Endereco = () => {
   return (
     <>
-      <Home />
+      <Header />
 
       <div className="flex  items-center justify-center h-full  mx-80 mt-2  bg-white border outline outline-4 outline-purple-800 border-purple-900 mb-10 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg relative ">
         <iframe

@@ -1,11 +1,11 @@
 import React from 'react'
 import ServList  from '../../Components/ServList';
-import Home from '../Home';
+import Header from '../../Components/Header';
 
 const Produtos = () => {
     return (
         <>
-       <Home />
+       <Header />
 
        <ServList />
         
