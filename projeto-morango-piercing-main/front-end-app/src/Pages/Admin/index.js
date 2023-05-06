@@ -28,9 +28,14 @@ const Admin = () => {
 
   return (
     <section className="my-12 max-w-screen-xl mx-auto px-6">
+            <div className="flex justify-center space-y-2">
+      <button onClick={() => navigate('/')} className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105">
+          Voltar
+        </button>
+      </div>
       <div className="flex justify-end space-y-2">
         <button onClick={() => navigate('/admin/add-products')} className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105">
-          Adiciona Produto
+          Adicionar Produto
         </button>
       </div>
       <div className="flex flex-col my-8">

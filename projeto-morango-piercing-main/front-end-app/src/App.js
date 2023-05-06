@@ -12,6 +12,7 @@ import PrivateRoute from "./Routes/PrivateRoute";
 import AddProducts from "./Pages/AddProducts";
 import EditProduct from "./Pages/EditProduct";
 import Produtos from "./Pages/Produtos";
+import Contato from "./Pages/Contato";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Endereco />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/contato"
+            element={
+              <PrivateRoute>
+                <Contato />
               </PrivateRoute>
             }
           />

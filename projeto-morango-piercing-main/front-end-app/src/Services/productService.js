@@ -25,6 +25,30 @@ const addProductAPI = (product) =>
         api.delete(`/produto/delete/${id}`)
         .then((response) => response)
         .catch((err) => err)
+
+        const findCategoriaAco = (id) => 
+        api.get(`/categoria/find/64504ca4942b49ff4e2d588a`)
+        .then((response) => response)
+        .catch((err) => err)
+
+        const findCategoriaTitanio = (id) => 
+        api.get(`/categoria/find/64504c87942b49ff4e2d5887`)
+        .then((response) => response)
+        .catch((err) => err)
+
+        const findCategoriaMicrodermal = (id) => 
+        api.get(`/categoria/find/645661d53c00872b196a0d9d`)
+        .then((response) => response)
+        .catch((err) => err)
     
 
-export { addProductAPI, findAllProducts, findProductById, updateProductById, deleteProduct }
+export { 
+    addProductAPI, 
+    findAllProducts, 
+    findProductById, 
+    updateProductById, 
+    deleteProduct,
+    findCategoriaAco,
+    findCategoriaTitanio,
+    findCategoriaMicrodermal
+}

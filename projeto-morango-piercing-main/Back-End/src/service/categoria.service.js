@@ -1,7 +1,9 @@
 const Categoria = require("../model/Categoria");
+const Produto = require ("../model/Produto");
 
 const findByIdCategoriaService = (id) => {
-    return Categoria.findById(id);
+   // return Categoria.findById(id);
+   return Produto.find({ "categorias._id": id }).populate('categorias._id');
 };
 
 const findAllCategoriaService = (limit, offset) => {

@@ -39,11 +39,11 @@ const Cadastro = () => {
 
 
     
-
+ 
     return (
         <section className="home-banner w-full">
 
-        <form className="flex flex-col items-center justify-center space-y-2 space-x-2 gap-y-1 pt-48" onSubmit ={handleSubmit}>
+        <form className="flex flex-col items-center justify-center space-y-2 space-x-2 gap-y-1 pt-36" onSubmit ={handleSubmit}>
             <div>
                 <label htmlFor=""></label>
                 <input className="border border-black rounded-full placeholder:text-center placeholder:text-purple-700"
@@ -80,8 +80,10 @@ const Cadastro = () => {
                 onChange={handleChangeValues}
                 placeholder="Telefone" />
             </div>
-            <button className='bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105 bottom-1 top-1' type="submit">Registrar</button>
+            <div className="flex flex-grid">
+            <button className='bg-primary mx-3 text-white px-6 rounded-full transition duration-700 hover:scale-105 bottom-1 top-1' type="submit">Registrar</button>
             <p className="bg-primary text-white px-6 rounded-full transition duration-700 hover:scale-105 bottom-1 top-1"><Link to='/login'>Já Posui Cadastro?</Link></p>
+            </div>
         </form>
         
         </section>

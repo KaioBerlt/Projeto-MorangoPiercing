@@ -33,11 +33,11 @@ const Login = () => {
     return(
 
         <section className="home-banner w-full">
-        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-2 space-x-2 gap-y-1 pt-48 ">
+        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-2 space-x-2 gap-y-1 pt-44 ">
         
         <div>
             <label htmlFor=""></label>
-                <input className="border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700" 
+                <input className=" border border-purple-950 rounded-full placeholder:text-center placeholder:text-purple-700" 
                 type="email"
                 name="email"
                 value={inputValues.email}
@@ -47,7 +47,7 @@ const Login = () => {
             </div>
             <div>
             <label htmlFor=""></label>
-                <input className="border border-purple-950 rounded-full mr-2 placeholder:text-center placeholder:text-purple-700" 
+                <input className="border border-purple-950 rounded-full mr-2 input:text-center placeholder:text-center placeholder:text-purple-700" 
                 type="password"
                 name="senha" 
                 value={inputValues.senha}
